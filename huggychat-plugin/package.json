@@ -1,0 +1,19 @@
+{
+  "name": "huggychat",
+  "version": "0.0.1",
+  "description": "",
+  "cordova": {
+    "id": "huggysdk",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "ISC"
+}

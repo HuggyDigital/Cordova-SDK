@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="huggychat" version="0.0.1">
+   <name>HuggyChat</name>
+   <js-module name="HuggyChat" src="www/HuggyChat.js">
+      <clobbers target="huggychat" />
+      <clobbers target="plugin.huggychat" />
+      <clobbers target="cordova.plugins.huggychat" />
+   </js-module>
+   <platform name="android">
+      <framework src="src/android/huggy.gradle" custom="true" type="gradleReference" />
+      <framework src="com.android.support:appcompat-v7:28.0.0" />
+      <framework src="com.google.firebase:firebase-messaging:18.0.0" />
+      <framework src="com.android.support:support-compat:28.0.0" />
+      <framework src="com.android.support.constraint:constraint-layout:1.1.3" />
+      <resource-file src="libs/huggysdk.aar" target="libs/huggysdk.aar" />
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="HuggyChatBridge">
+            <param name="android-package" value="huggychat.HuggyChatBridge" />
+         </feature>
+      </config-file>
+      <config-file target="AndroidManifest.xml" parent="/manifest/application">
+         <activity android:label="HuggyChatActivity" android:name="huggychat.HuggyChatActivity"></activity>
+         <service
+         android:name="huggychat.HuggyChatFirebaseMessagingService"
+         android:exported="false">
+         <intent-filter>
+         <action android:name="com.google.firebase.MESSAGING_EVENT" />
+         </intent-filter>
+         </service>
+
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml" />
+      <source-file src="src/android/HuggyChatFirebaseMessagingService.java" target-dir="src/huggychat/HuggyChat" />
+      <source-file src="src/android/HuggyChatBridge.java" target-dir="src/huggychat/HuggyChat" />
+      <source-file src="src/android/HuggyChatActivity.java" target-dir="src/huggychat/HuggyChat" />
+      <source-file src="src/android/res/layout/activity_huggy_chat.xml" target-dir="res/layout" />
+   </platform>
+   <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+         <feature name="HuggyChatBridge">
+            <param name="ios-package" value="HuggyChatBridge" />
+         </feature>
+      </config-file>
+      <resource-file src="src/ios/HuggyChat.storyboard"/>
+      <source-file src="src/ios/HuggyChatBridge.m" />
+      <header-file src="src/ios/include/HuggySdk/HuggySdk.h"/>
+      <source-file src="src/ios/libHuggySdk.a" framework="true"/>
+      <header-file src="src/ios/HuggyChat.h"/>
+      <source-file src="src/ios/HuggyChat.m"/>
+   </platform>
+</plugin>
+
