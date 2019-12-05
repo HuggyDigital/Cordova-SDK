@@ -1,7 +1,7 @@
 {
   "name": "huggychat",
   "version": "0.0.1",
-  "description": "",
+  "description": "Huggy Chat SDK Ionic/Cordova plugin for Android/iOS",
   "cordova": {
     "id": "huggysdk",
     "platforms": [
@@ -9,11 +9,23 @@
       "ios"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuggyDigital/Cordova-SDK.git"
+  },
   "keywords": [
+    "huggychat",
+    "huggychat-sdk",
+    "huggychat-ionic",
+    "huggychat-cordova",
     "ecosystem:cordova",
     "cordova-android",
     "cordova-ios"
   ],
-  "author": "",
-  "license": "ISC"
+  "author": "Huggy",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/HuggyDigital/Cordova-SDK/issues"
+  },
+  "homepage": "https://github.com/HuggyDigital/Cordova-SDK#readme"
 }
