@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="huggychat" version="0.0.1">
    <name>HuggyChat</name>
+   <author>Intercom</author>
+   <license>MIT License</license>
+   <description>Ionic/Cordova plugin for Huggy Chat</description>
+   <repo>https://github.com/HuggyDigital/Cordova-SDK.git</repo>
+   <keywords>huggychat,huggychat-mobile,huggychat-ionic,huggychat-cordova</keywords>
    <js-module name="HuggyChat" src="www/HuggyChat.js">
       <clobbers target="huggychat" />
       <clobbers target="plugin.huggychat" />
