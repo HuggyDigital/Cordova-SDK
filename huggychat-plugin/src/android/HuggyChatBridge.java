@@ -2,6 +2,7 @@ package huggychat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 
 import org.apache.cordova.CordovaPlugin;
@@ -31,7 +32,9 @@ public class HuggyChatBridge extends CordovaPlugin {
 
         if (action.equals("openHuggyChat")) {
             String sdkId = args.getString(0);
-            this.openHuggyChat(sdkId, callbackContext);
+            String title = args.getString(1);
+            this.openHuggyChat(sdkId, title, callbackContext);
+
             return true;
         }
         else if(action.equals("handleNotification")){
@@ -73,11 +76,16 @@ public class HuggyChatBridge extends CordovaPlugin {
         return map;
     }
 
-    private void openHuggyChat(String sdkId, CallbackContext callbackContext) {
+    private void openHuggyChat(String sdkId, String title, CallbackContext callbackContext) {
         HuggyChat.getInstance(sdkId);
         
         Context context = this.cordova.getActivity().getApplicationContext();
         Intent intent = new Intent(context, huggychat.HuggyChatActivity.class);
+
+        Bundle b = new Bundle();
+        b.putString("title", title);
+        intent.putExtras(b);
+
         this.cordova.getActivity().startActivity(intent);
     }
 

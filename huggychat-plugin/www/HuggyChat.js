@@ -1,7 +1,7 @@
 var exec = require("cordova/exec");
 
-exports.openHuggyChat = function(sdkId, success, error) {
-  exec(success, error, "HuggyChatBridge", "openHuggyChat", [sdkId]);
+exports.openHuggyChat = function(sdkId, title, success, error) {
+  exec(success, error, "HuggyChatBridge", "openHuggyChat", [sdkId, title]);
 };
 
 exports.coolMethod = function(sdkId, success, error) {
