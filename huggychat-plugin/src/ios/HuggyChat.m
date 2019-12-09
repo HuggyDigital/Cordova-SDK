@@ -54,4 +54,9 @@
     NSLog(@"setName");
     [huggySdk callApiMethod:@"setName" :@"\"Huggy Client\""];
 }
+
+- (IBAction)onCloseModal:(id)sender{
+    NSLog(@"closeModal");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

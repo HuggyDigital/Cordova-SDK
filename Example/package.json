@@ -78,8 +78,8 @@
       "huggychat": {}
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

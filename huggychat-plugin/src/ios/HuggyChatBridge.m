@@ -18,9 +18,10 @@
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"HuggyChat" bundle:nil];
     HuggyChat *vs = [storyboard instantiateViewControllerWithIdentifier:@"HuggyChat"];
+    vs.modalPresentationStyle=UIModalPresentationFullScreen;
+    
     vs.sdkId = sdkId;
-
-    [self.viewController showViewController:vs sender:nil];
+    [self.viewController presentViewController:vs animated:YES completion:nil];
 }
 
 @end

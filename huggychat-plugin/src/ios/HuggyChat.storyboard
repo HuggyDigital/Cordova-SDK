@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ml-cX-c64">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -17,19 +17,28 @@
                         <viewControllerLayoutGuide type="bottom" id="dBz-gH-VHy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kU4-L2-eph">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyj-MK-RFK">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmA-DF-TIj">
+                                <rect key="frame" x="311" y="52" width="48" height="30"/>
+                                <state key="normal" title="Fechar"/>
+                                <connections>
+                                    <action selector="onCloseModal:" destination="CIJ-qS-IEC" eventType="touchUpInside" id="chp-fT-KP9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kyj-MK-RFK" firstAttribute="top" secondItem="95T-BS-xOo" secondAttribute="bottom" id="1gi-D1-gZK"/>
+                            <constraint firstItem="kyj-MK-RFK" firstAttribute="top" secondItem="bmA-DF-TIj" secondAttribute="bottom" id="1gi-D1-gZK"/>
+                            <constraint firstItem="bmA-DF-TIj" firstAttribute="top" secondItem="95T-BS-xOo" secondAttribute="bottom" id="GfG-NS-Rfe"/>
                             <constraint firstAttribute="trailing" secondItem="kyj-MK-RFK" secondAttribute="trailing" id="QYY-0C-CR5"/>
                             <constraint firstItem="kyj-MK-RFK" firstAttribute="leading" secondItem="kU4-L2-eph" secondAttribute="leading" id="dJ9-vr-VSd"/>
+                            <constraint firstItem="vAO-Pc-dlI" firstAttribute="trailing" secondItem="bmA-DF-TIj" secondAttribute="trailing" constant="20" id="q9w-Rd-JUP"/>
                             <constraint firstItem="kyj-MK-RFK" firstAttribute="bottom" secondItem="dBz-gH-VHy" secondAttribute="top" id="xXU-Gh-icK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vAO-Pc-dlI"/>
@@ -48,7 +57,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0ml-cX-c64" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="7uU-T7-BZm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.087619280339999994" green="0.088163604100000001" blue="0.1104649793" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
