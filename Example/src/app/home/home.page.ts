@@ -19,6 +19,8 @@ export class HomePage {
   };
 
   clickToOpenHuggyChat = () => {
+    cordova.plugins.huggychat.handleNotification();
+
     cordova.plugins.huggychat.openHuggyChat(
       "ece94deb-2f6e-4710-8c01-2a4b2d5c3a4a",
       "Huggy Chat",

@@ -1,6 +1,7 @@
 package huggychat;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 
@@ -18,6 +19,8 @@ public class HuggyChatFirebaseMessagingService extends FirebaseMessagingService 
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
         Map<String, String> payload = remoteMessage.getData();
+        Bundle bundle = getApplicationInfo().metaData;
+
 
         Intent resultIntent = new Intent(this, huggychat.HuggyChatActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
@@ -27,7 +30,7 @@ public class HuggyChatFirebaseMessagingService extends FirebaseMessagingService 
                 .handleTapNotification(stackBuilder)
                 .notifyAppInForeground()
                 .notify(payload,
-                        R.mipmap.ic_launcher,
+                        bundle.getInt("io.huggy.chatsdk.notification_icon"),
                         "Você tem uma nova mensagem",
                         payload.get("text"));
     }
