@@ -1,6 +1,6 @@
 {
   "name": "@huggyhq/huggychat",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Huggy Chat SDK Ionic/Cordova plugin for Android/iOS",
   "cordova": {
     "id": "huggysdk",
