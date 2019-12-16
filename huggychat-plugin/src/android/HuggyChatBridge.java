@@ -19,8 +19,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import io.ionic.starter.R;
-
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -97,7 +95,8 @@ public class HuggyChatBridge extends CordovaPlugin {
 
     private void notify(Map<String,String> payload, String title, String message) {        
         Context context = this.cordova.getActivity().getApplicationContext();
-        HuggyNotification.getInstance(context).notify(payload, R.mipmap.ic_launcher, title, message);
+        Bundle bundle = this.cordova.getActivity().getApplicationInfo().metaData;
+        HuggyNotification.getInstance(context).notify(payload, bundle.getInt("io.huggy.chatsdk.notification_icon"), title, message);
     }
 
     public HuggyNotification notifyAppInForeground() {

@@ -7,7 +7,7 @@
     tools:context="huggychat.HuggyChatActivity">
 
     <WebView
-        android:id="@+id/web_view"
+        android:id="@+id/huggy_web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="8dp"

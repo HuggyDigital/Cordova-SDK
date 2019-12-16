@@ -3,13 +3,10 @@ package huggychat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.TaskStackBuilder;
-import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import io.huggy.chatsdk.HuggyNotification;
-
-import io.ionic.starter.R;
 
 import java.util.Map;
 
