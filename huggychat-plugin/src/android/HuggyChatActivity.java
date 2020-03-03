@@ -1,8 +1,12 @@
 package huggychat;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
+import android.text.Html;
 import android.webkit.WebView;
 import android.app.Activity;
 
@@ -24,8 +28,14 @@ public class HuggyChatActivity extends Activity {
         setContentView(layoutId);
 
         Bundle b = getIntent().getExtras();
-        setTitle(b.getString("title"));
-        Bundle bundle = getApplicationInfo().metaData;
+
+        ActionBar actionBar = getActionBar();
+        String actionBarBackground = b.getString("actionBarBackground");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor((actionBarBackground))));
+
+        String actionBarText = b.getString("actionBarText");
+        String title = String.format("<font color='%s'>%s</font>", actionBarText, b.getString("title"));
+        actionBar.setTitle(Html.fromHtml(title));
 
         int webViewId = getResources().getIdentifier("huggy_web_view", "id", getPackageName());
         webView = findViewById(webViewId);

@@ -82,6 +82,8 @@ public class HuggyChatBridge extends CordovaPlugin {
 
         Bundle b = new Bundle();
         b.putString("title", title);
+        b.putString("actionBarBackground", preferences.getString("huggychatActionBarBackgroundColor", "#FFFFFF"));
+        b.putString("actionBarText", preferences.getString("huggychatActionBarTextColor", "#000000"));
         intent.putExtras(b);
 
         this.cordova.getActivity().startActivity(intent);
