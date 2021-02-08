@@ -27,5 +27,18 @@ export class HomePage {
       this.success,
       this.failure
     );
+
+    cordova.plugins.huggychat.execute(
+      "setPhone",
+      "+1;75999999999",
+      this.success,
+      this.failure
+    );
+    cordova.plugins.huggychat.execute(
+      "sendMessage",
+      "Olá, essa uma é uma nova mensagem",
+      this.success,
+      this.failure
+    );
   };
 }
