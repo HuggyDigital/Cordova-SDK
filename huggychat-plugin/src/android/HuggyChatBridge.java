@@ -35,12 +35,12 @@ public class HuggyChatBridge extends CordovaPlugin {
 
             return true;
         }
-        else if(action.equals("handleNotification")){
+        else if (action.equals("handleNotification")) {
             this.handleNotification();
 
             return true;
         }
-        else if(action.equals("notify")) {
+        else if (action.equals("notify")) {
             Map<String, String> payload  = this.toMap(args.getJSONObject(0));
 
             String title = args.getString(1);
@@ -50,13 +50,22 @@ public class HuggyChatBridge extends CordovaPlugin {
 
             return true;
         }
-        else if(action.equals("notifyAppInForeground")) {
+        else if (action.equals("notifyAppInForeground")) {
             this.notifyAppInForeground();
 
             return true;
         }
-        else if(action.equals("notNotifyAppInForeground")){
+        else if (action.equals("notNotifyAppInForeground")) {
             this.notNotifyAppInForeground();
+
+            return true;
+        }
+        else if (action.equals("execute")) {
+            String method = args.getString(0);
+            String params = args.getString(1);
+            String[] paramsArray = params.split(";");
+            
+            this.execute(method, paramsArray);
 
             return true;
         }
@@ -107,10 +116,13 @@ public class HuggyChatBridge extends CordovaPlugin {
         return HuggyNotification.getInstance();
     }
 
-    public HuggyNotification notNotifyAppInForeground(){
+    public HuggyNotification notNotifyAppInForeground() {
         HuggyNotification.getInstance().notNotifyAppInForeground();
         
         return HuggyNotification.getInstance();
     }
 
+    public void execute(String function, String args[]) {
+        HuggyChat.getInstance().callApiMethod(function, args);
+    }
 }

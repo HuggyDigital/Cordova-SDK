@@ -1,29 +1,33 @@
 var exec = require("cordova/exec");
 
-exports.openHuggyChat = function(sdkId, title, success, error) {
+exports.openHuggyChat = function (sdkId, title, success, error) {
   exec(success, error, "HuggyChatBridge", "openHuggyChat", [sdkId, title]);
 };
 
-exports.coolMethod = function(sdkId, success, error) {
+exports.coolMethod = function (sdkId, success, error) {
   exec(success, error, "HuggyChatBridge", "coolMethod", [sdkId]);
 };
 
-exports.handleNotification = function(success, error) {
+exports.handleNotification = function (success, error) {
   exec(success, error, "HuggyChatBridge", "handleNotification");
 };
 
-exports.notify = function(payload, title, message, success, error) {
+exports.notify = function (payload, title, message, success, error) {
   exec(success, error, "HuggyChatBridge", "notify", [payload, title, message]);
 };
 
-exports.notifyAppInForeground = function(success, error) {
+exports.notifyAppInForeground = function (success, error) {
   exec(success, error, "HuggyChatBridge", "notifyAppInForeground");
 };
 
-exports.notNotifyAppInForeground = function(success, error) {
+exports.notNotifyAppInForeground = function (success, error) {
   exec(success, error, "HuggyChatBridge", "notNotifyAppInForeground");
 };
 
-exports.testConnection = function(arg0) {
+exports.testConnection = function (arg0) {
   alert(arg0);
+};
+
+exports.execute = function (methodName, params, success, error) {
+  exec(success, error, "HuggyChatBridge", "execute", [methodName, params]);
 };
