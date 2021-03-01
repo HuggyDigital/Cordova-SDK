@@ -62,12 +62,22 @@ public class HuggyChatBridge extends CordovaPlugin {
         }
         else if (action.equals("execute")) {
             String method = args.getString(0);
-            String params = args.getString(1);
-            String[] paramsArray = params.split(";");
-            
-            this.execute(method, paramsArray);
+            try {
+                JSONObject[] params = {args.getJSONObject(1)};
+                this.execute(method, params);
 
-            return true;
+                return true;
+            } catch(Exception e){
+                JSONArray params = args.getJSONArray(1);
+
+                String[] paramsArray = new String[params.length()];
+                for (int i = 0; i < params.length(); i++){
+                    paramsArray[i] = params.getString(i);
+                }
+                this.execute(method, paramsArray);
+
+                return true;
+            }
         }
 
         return false;
@@ -122,7 +132,7 @@ public class HuggyChatBridge extends CordovaPlugin {
         return HuggyNotification.getInstance();
     }
 
-    public void execute(String function, String args[]) {
+    public void execute(String function, Object args[]) {
         HuggyChat.getInstance().callApiMethod(function, args);
     }
 }

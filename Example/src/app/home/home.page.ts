@@ -21,22 +21,34 @@ export class HomePage {
   clickToOpenHuggyChat = () => {
     cordova.plugins.huggychat.handleNotification();
 
+    const data = {
+      customer: {
+        name: "John Doe",
+        mobile: "+557536230001",
+        email: "seuemail@email.com",
+        custom_fields: {
+          passaporte: "0000000"
+        }
+      }
+    };
+
     cordova.plugins.huggychat.openHuggyChat(
-      "ece94deb-2f6e-4710-8c01-2a4b2d5c3a4a",
+      "ae4c74c3-08c9-4cf6-859b-aee3a1bcb5b0",
       "Huggy Chat",
       this.success,
       this.failure
     );
 
     cordova.plugins.huggychat.execute(
-      "setPhone",
-      "+1;75999999999",
+      "setData",
+      data,
       this.success,
       this.failure
     );
+
     cordova.plugins.huggychat.execute(
       "sendMessage",
-      "Olá, essa uma é uma nova mensagem",
+      ["Olá", "essa uma é uma nova mensagem"],
       this.success,
       this.failure
     );
